@@ -11,8 +11,7 @@ What type of input are you about to enter?
 
 Enter the number representing the preferred type of input: 
 1) Few numbers(no need for classification)
-\n==> 
-"""))
+\n==> """))
 
 
 def pos(number):
