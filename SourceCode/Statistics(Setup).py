@@ -16,7 +16,9 @@ Enter the number representing the preferred type of input:
 
 def pos(number):
 
-    if number == 1:
+    if number <= 0:
+        raise ValueError("Invalid input! Only POSITIVE input is acceptable")
+    elif number == 1:
         return "1st"
     elif number == 2:
         return "2nd"
@@ -32,7 +34,7 @@ def fill_lists(list_of_v, sum_, control_str):
     num_of_x = len(list_of_v)
     count = 0
 
-    if control_str == "F":
+    if control_str == "F": # F == Float
 
         N_list, F_list, F_list_ = [], [], []
 
@@ -86,7 +88,6 @@ def type_1():
             except ValueError:
                 input_type = " (WORD)"
                 str_gen_type = "a WORD"
-                pass
             finally:
                 gen_type = type(xis)
                 curr_type = gen_type
@@ -100,6 +101,7 @@ def type_1():
             finally:
                 curr_type = type(xis)
 
+# ================= Invalid Input Error Handling =================
         if curr_type != gen_type and xis != "":
             print("""
 +===================================================+
@@ -113,6 +115,7 @@ def type_1():
 +===================================================+
 """.format(str_curr_type, str_gen_type))
             continue
+# ================================================================
 
         if xis != "":
 
