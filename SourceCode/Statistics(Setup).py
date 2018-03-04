@@ -6,13 +6,6 @@
 
 import texttable as tt
 
-Type = int(input("""
-What type of input are you about to enter?
-
-Enter the number representing the preferred type of input: 
-1) Few numbers(no need for classification)
-\n==> """))
-
 
 def pos(number):
 
@@ -141,11 +134,6 @@ def type_1():
         output(name_array, data_array, 'cm')
 
 
-def type2():
-
-    pass
-
-
 def output(name_array, data_array, align):
 
     tab, x, num_of_xs, num_of_data = tt.Texttable(), [[]], len(name_array), len(data_array[0])
@@ -164,9 +152,6 @@ def output(name_array, data_array, align):
     print("\n" * 3)
 
 
-if Type == 1:
-    type_1()
-elif Type == 2:
-    pass
+type_1()
 
 input('Press ENTER to exit')
