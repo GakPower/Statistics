@@ -30,11 +30,9 @@ def pos(number):
 
 def fill_lists(list_of_v, sum_, control_str):
 
-    f_list, f_list_ = [], []
-    num_of_x = len(list_of_v)
-    count = 0
+    f_list, f_list_, num_of_x, count = [], [], len(list_of_v), 0
 
-    if control_str == "F": # F == Float
+    if control_str == "F":  # F == Float
 
         N_list, F_list, F_list_ = [], [], []
 
@@ -70,10 +68,7 @@ def fill_lists(list_of_v, sum_, control_str):
 
 def type_1():
     # ================= Initialization =================
-    x_list, v_list, = [], []
-    x = 0
-    v_sum = 0
-    input_type = " "
+    x_list, v_list, x, v_sum, input_type = [], [], 0, 0, " "
 
     # ================= Creating the x and v lists =================
     while True:
@@ -128,12 +123,8 @@ def type_1():
                 v_list[position] += 1
                 x += 1
         else:
-            num_of_xs = len(x_list)
-            for i in range(num_of_xs):
-                v_sum += v_list[i]  # Calculates the v
-            x_list, v_list = zip(*sorted(zip(x_list, v_list)))
-            x_list = list(x_list)
-            v_list = list(v_list)
+            v_sum = sum(v_list)  # Calculates the v
+            x_list, v_list = zip(*sorted(zip(x_list, v_list)))  # Sorts x and v lists based on x
             break
 
     if type(x_list[0]) == float:
@@ -157,11 +148,7 @@ def type2():
 
 def output(name_array, data_array, align):
 
-    tab = tt.Texttable()
-    x = [[]]
-    
-    num_of_xs = len(name_array)
-    num_of_data = len(data_array[0])
+    tab, x, num_of_xs, num_of_data = tt.Texttable(), [[]], len(name_array), len(data_array[0])
 
     for i in range(num_of_data):
         x.append([data_array[h][i] for h in range(num_of_xs)])

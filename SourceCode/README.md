@@ -5,5 +5,4 @@ Just execute **Statistics.py** and enter the numbers or the words from your surv
 
 **Simple and Fast Command-line application.**
 
-P.S: 1) Some Statistic knowledge is required!
-     2) **texttable.py is needed...** The program will **NOT** run if this file is not on the same folder
+P.S: _Some Statistic knowledge is required!_
