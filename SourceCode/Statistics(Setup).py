@@ -6,13 +6,6 @@
 
 import texttable as tt
 
-Type = int(input("""
-What type of input are you about to enter?
-
-Enter the number representing the preferred type of input: 
-1) Few numbers(no need for classification)
-\n==> """))
-
 
 def pos(number):  # Returns the position in string from the given number
 
