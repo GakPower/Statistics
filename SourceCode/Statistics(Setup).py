@@ -151,12 +151,12 @@ def output(name_array, data_array, align):  # Creates the table of the Statistic
     for i in range(num_of_data):
         x.append([data_array[h][i] for h in range(num_of_xs)])  # adds data to a new row
 
-    tab.header(name_array)  # creating the header
-
     tab.add_rows(x)  # adds rows with the above data
 
     tab.set_cols_align([align[0] for _ in range(num_of_xs)])  # horizontal alignment
     tab.set_cols_valign([align[1] for _ in range(num_of_xs)])  # vertical alignment
+
+    tab.header(name_array)  # creating the header
 
     print("\n" * 100)  # Let empty space after the inputs
     print(tab.draw())
