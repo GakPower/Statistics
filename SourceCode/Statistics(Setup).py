@@ -7,7 +7,7 @@
 import texttable as tt
 
 
-def pos(number):
+def pos(number):  # Returns the position in string from the given number
 
     if number <= 0:
         raise ValueError("Invalid input! Only POSITIVE input is acceptable")
@@ -21,7 +21,7 @@ def pos(number):
         return str(number) + "th"
 
 
-def fill_lists(list_of_v, sum_, control_str):
+def fill_lists(list_of_v, sum_, control_str):  # Creates f, f% and if needed the F and F% lists
 
     f_list, f_list_, num_of_x, count = [], [], len(list_of_v), 0
 
@@ -92,20 +92,20 @@ def type_1():
 # ================= Invalid Input Error Handling =================
         if curr_type != gen_type and xis != "":
             print("""
-+===================================================+
-| Invalid type of input!                            |
-|                                                   |
-| Based on your first input, the supported type for |
-| the current execution is                          |
-| {0} while your last entry is {1} !                |
-|                                                   |
-| Please enter an input with a valid type...        |
-+===================================================+
-""".format(str_curr_type, str_gen_type))
+        +===================================================+
+        | Invalid type of input!                            |
+        |                                                   |
+        | Based on your first input, the supported type for |
+        | the current execution is                          |
+        | {0} while your last entry is {1} !         |
+        |                                                   |
+        | Please enter an input with a valid type...        |
+        +===================================================+
+        """.format(str_curr_type, str_gen_type))
             continue
 # ================================================================
 
-        if xis != "":
+        if xis != "":  # Checks if input is empty (User just pressed ENTER) if so it exit else create/add to lists
 
             if xis not in x_list:
                 x_list.append(xis)
@@ -120,36 +120,40 @@ def type_1():
             x_list, v_list = zip(*sorted(zip(x_list, v_list)))  # Sorts x and v lists based on x
             break
 
-    if type(x_list[0]) == float:
+    if type(x_list[0]) == float:  # Checks for the type of input
+
         # ================= Filling lists =================
         N_list, f_list, f_list_, F_list, F_list_ = fill_lists(v_list, v_sum, "F")
         data_array = [x_list, v_list, N_list, f_list, f_list_, F_list, F_list_]
         name_array = ['Xi', 'vi', 'Ni', 'fi', 'fi%', 'Fi', 'Fi%']
         output(name_array, data_array, 'cm')
     else:
+
         # ================= Filling lists =================
-        N_list, f_list, f_list_ = fill_lists(v_list, v_sum, "S")
+        N_list, f_list, f_list_ = fill_lists(v_list, v_sum, "W")
         data_array = [x_list, v_list, N_list, f_list, f_list_]
         name_array = ['Xi', 'vi', 'Ni', 'fi', 'fi%']
         output(name_array, data_array, 'cm')
 
 
-def output(name_array, data_array, align):
+def output(name_array, data_array, align):  # Creates the table of the Statistical info
 
+    # Initialization
     tab, x, num_of_xs, num_of_data = tt.Texttable(), [[]], len(name_array), len(data_array[0])
 
     for i in range(num_of_data):
-        x.append([data_array[h][i] for h in range(num_of_xs)])
+        x.append([data_array[h][i] for h in range(num_of_xs)])  # adds data to a new row
 
-    tab.add_rows(x)
-    tab.set_cols_align([align[0] for _ in range(num_of_xs)])
-    tab.set_cols_valign([align[1] for _ in range(num_of_xs)])
+    tab.add_rows(x)  # adds rows with the above data
 
-    tab.header(name_array)
+    tab.set_cols_align([align[0] for _ in range(num_of_xs)])  # horizontal alignment
+    tab.set_cols_valign([align[1] for _ in range(num_of_xs)])  # vertical alignment
 
-    print("\n" * 100)
+    tab.header(name_array)  # creating the header
+
+    print("\n" * 100)  # Let empty space after the inputs
     print(tab.draw())
-    print("\n" * 3)
+    print("\n" * 3)  # Let empty space after the output
 
 
 type_1()
