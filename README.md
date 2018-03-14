@@ -5,4 +5,6 @@ Just execute **Statistics(Setup).py** under **Executable** directory and enter t
 
 **Simple and Fast Command-line application.**
 
+With **version 2.0** you can now insert data that need classification(Data Grouping).
+
 P.S: _Some Statistic knowledge is required!_
